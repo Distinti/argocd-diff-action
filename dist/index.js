@@ -1693,7 +1693,6 @@ const path = __importStar(__webpack_require__(622));
 const node_fetch_1 = __importDefault(__webpack_require__(454));
 const ARCH = process.env.ARCH || 'linux';
 const githubToken = core.getInput('github-token');
-core.info(githubToken);
 const ARGOCD_SERVER_URL = core.getInput('argocd-server-url');
 const ARGOCD_TOKEN = core.getInput('argocd-token');
 const VERSION = core.getInput('argocd-version');
@@ -1735,7 +1734,7 @@ function setupArgoCDCommand() {
         const octokit_admin = github.getOctokit(ARGOCD_LOVELY_PLUGIN_TOKEN);
         core.info('Fetching argocd-lovely-plugin releases');
         const argocdLovelyPluginRelease = yield octokit_admin.rest.repos.getLatestRelease({
-            owner: 'getprotocollab',
+            owner: 'Distinti',
             repo: 'argocd-lovely-plugin'
         });
         core.info(`Found release: ${argocdLovelyPluginRelease.data.name}`);
