@@ -31,7 +31,6 @@ interface App {
 }
 const ARCH = process.env.ARCH || 'linux';
 const githubToken = core.getInput('github-token');
-core.info(githubToken);
 
 const ARGOCD_SERVER_URL = core.getInput('argocd-server-url');
 const ARGOCD_TOKEN = core.getInput('argocd-token');
@@ -80,7 +79,7 @@ async function setupArgoCDCommand(): Promise<(params: string) => Promise<ExecRes
 
   core.info('Fetching argocd-lovely-plugin releases');
   const argocdLovelyPluginRelease = await octokit_admin.rest.repos.getLatestRelease({
-    owner: 'getprotocollab',
+    owner: 'Distinti',
     repo: 'argocd-lovely-plugin'
   });
 
